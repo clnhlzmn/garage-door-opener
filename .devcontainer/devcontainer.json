@@ -10,5 +10,6 @@
 			"extensions": [
 			]
 		}
-	}
+	},
+	"mounts": ["source=${env:HOME}/.ssh,target=/root/.ssh,type=bind,readonly"]
 }
