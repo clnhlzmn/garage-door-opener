@@ -5,9 +5,11 @@
 	"customizations": {
 		"vscode": {
 			"settings": {
-				"terminal.integrated.defaultProfile.linux": "bash"
+				"terminal.integrated.defaultProfile.linux": "bash",
+				"C_Cpp.default.compileCommands": "garage-door-opener/build/compile_commands.json"
 			},
 			"extensions": [
+				"ms-vscode.cpptools"
 			]
 		}
 	},
