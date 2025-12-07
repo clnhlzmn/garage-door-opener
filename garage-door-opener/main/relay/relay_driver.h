@@ -4,8 +4,6 @@
 #include <esp_matter.h>
 #include <relay.h>
 
-constexpr size_t N_RELAYS = 4;
-
 /** Default attribute values used during initialization */
 #define DEFAULT_POWER true
 
@@ -13,14 +11,12 @@ typedef void *relay_driver_handle_t;
 
 /** Initialize the relay driver
  *
- * This initializes the relay driver associated with the selected board.
+ * This initializes the single relay driver.
  *
- * @param[in] i_gpio Index of the relay to use (0 to 3).
- * 
  * @return Handle on success.
  * @return NULL in case of failure.
  */
-relay_driver_handle_t app_driver_relay_init(const size_t i_gpio);
+relay_driver_handle_t app_driver_relay_init();
 
 /** Set defaults for relay driver
  *

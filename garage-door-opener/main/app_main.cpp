@@ -41,8 +41,6 @@ using namespace chip::DeviceLayer;
 
 static const char *TAG = "app_main";
 
-uint16_t relay_endpoint_ids[N_RELAYS];
-
 using namespace esp_matter;
 using namespace esp_matter::attribute;
 using namespace esp_matter::endpoint;
@@ -178,7 +176,7 @@ extern "C" void app_main()
 
     MEMORY_PROFILER_DUMP_HEAP_STAT("Bootup");
 
-    relay_driver_handle_t relay_handle = app_driver_relay_init(0);
+    relay_driver_handle_t relay_handle = app_driver_relay_init();
 
     /* Create a Matter node and add the mandatory Root Node device type on endpoint 0 */
     node::config_t node_config;
@@ -194,8 +192,8 @@ extern "C" void app_main()
     endpoint_t *endpoint = on_off_plug_in_unit::create(node, &relay_config, ENDPOINT_FLAG_NONE, relay_handle);
     ABORT_APP_ON_FAILURE(endpoint != nullptr, ESP_LOGE(TAG, "Failed to create relay endpoint"));
 
-    relay_endpoint_ids[0] = endpoint::get_id(endpoint);
-    ESP_LOGI(TAG, "Relay created with endpoint_id %d", relay_endpoint_ids[0]);
+    uint16_t relay_endpoint_id = endpoint::get_id(endpoint);
+    ESP_LOGI(TAG, "Relay created with endpoint_id %d", relay_endpoint_id);
 
 #if CHIP_DEVICE_CONFIG_ENABLE_THREAD && CHIP_DEVICE_CONFIG_ENABLE_WIFI_STATION
     // Enable secondary network interface
@@ -231,7 +229,7 @@ extern "C" void app_main()
     MEMORY_PROFILER_DUMP_HEAP_STAT("matter started");
 
     /* Starting driver with default values */
-    app_driver_relay_set_defaults(relay_endpoint_ids[0]);
+    app_driver_relay_set_defaults(relay_endpoint_id);
 
 #if CONFIG_ENABLE_ENCRYPTED_OTA
     err = esp_matter_ota_requestor_encrypted_init(s_decryption_key, s_decryption_key_len);
