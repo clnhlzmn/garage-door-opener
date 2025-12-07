@@ -24,7 +24,7 @@ python3 -m esptool --chip esp32c6 write_flash 0x10000 mfg/fff2_8001/*/*partition
 
 After having flashed the factory partition the device can be paired using the corresponding QR code found at `mfg/fff2_8001/*/*qrcode.png`.
 
-### Flashing
+### Flashing the App
 
 ```
 cd garage-door-opener/build
