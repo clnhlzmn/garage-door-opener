@@ -1,3 +1,4 @@
 build
-partitions.csv
 managed_components
+sdkconfig
+*.old

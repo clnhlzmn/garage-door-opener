@@ -1,4 +1,4 @@
-FROM espressif/esp-matter
+FROM espressif/esp-matter@sha256:42e914411453ecab6df6f2ff4ba1bbc9eec085e4496393f4b134296b7460dceb
 
 RUN apt-get update -y && apt-get install ssh -y
 

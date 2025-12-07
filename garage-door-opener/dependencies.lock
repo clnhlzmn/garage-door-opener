@@ -182,7 +182,7 @@ dependencies:
       type: service
     version: 1.9.1
   espressif/rmaker_common:
-    component_hash: 8519340d6c5800ad6d041058022be4f070c8a17f5f8f26987331b83735afcd91
+    component_hash: 842d2aaf486a24f11827a86b1147ee8ac7e1881f45e3d65a2141aff5bcbf276a
     dependencies:
     - name: idf
       require: private
@@ -190,7 +190,7 @@ dependencies:
     source:
       registry_url: https://components.espressif.com
       type: service
-    version: 1.5.2
+    version: 1.5.3
   idf:
     source:
       type: idf
@@ -206,6 +206,6 @@ direct_dependencies:
 - espressif/json_parser
 - espressif/led_strip
 - espressif/mdns
-manifest_hash: a003312003d72647a2d8bbfba08153c8a3255fafd3d42e0b484ef8a26ebb576e
+manifest_hash: c15eaa367fc776fc22627b4c6568183a61ea17ab6b629ec496d666a22ea0947a
 target: esp32c6
 version: 2.0.0
