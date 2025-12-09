@@ -1,3 +1,13 @@
+### What is it?
+
+It's a single channel contact closure that is controllable using matter over thread. I made this to be a garage door opener for my house (the contact closure is connected to the opener button input) but it could be used for anything you need a relay for.
+
+The code here is tailored specifically for being a garage door opener, though, meaning it always turns the relay off after 1 second. That can easily be changed by removing the timer stuff in relay/relay_driver.cpp.
+
+### Hardware
+
+This is based on Seeed Studio's [XIAO ESP32-C6](https://www.seeedstudio.com/Seeed-Studio-XIAO-ESP32C6-p-5884.html?qid=EUBP4U_y436nzzh_1765296052518) combined with their [1 channel relay](https://www.seeedstudio.com/Relay-add-on-module-for-XIAO-p-6310.html).
+
 ### Building
 
 ```
