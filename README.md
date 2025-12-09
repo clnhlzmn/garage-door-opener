@@ -10,6 +10,8 @@ This is based on Seeed Studio's [XIAO ESP32-C6](https://www.seeedstudio.com/Seee
 
 ### Building
 
+If you're using the devcontainer you should be able to run the following commands without issue.
+
 ```
 cd garage-door-opener
 idf.py set-target esp32c6
@@ -26,6 +28,8 @@ rm -rf build/mfg && esp-matter-mfg-tool --discriminator 4069 --passcode $RANDOM 
 ### Flash the Factory Partition
 
 Note: this command depends on having produced exactly one factory partition binary using the command above.
+
+Note 2: If you're using the devcontainer on Windows or macOS you likely can't run this command (and any others referring to esptool) from inside the container because it won't have access to the usb com port. It is possible to give the container access to the com port on Linux and in that case you could use idf.py to flash the project directly. If you're using esptool on the container host you just need to make sure the build directory from inside the container is accessible somehow.
 
 ```
 cd garage-door-opener/build
