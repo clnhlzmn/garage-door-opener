@@ -2,3 +2,5 @@ build
 managed_components
 sdkconfig
 *.old
+.cache
+compile_commands.json
